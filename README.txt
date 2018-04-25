@@ -1,0 +1,3 @@
+The By-Tor engine has all the capabilities required by the assignment, as well as the added capabilities to be "Containers", which are able to hold other items. The "put" command lets any portable items either in the player's inventory or in that location into any container that is in either place as well.
+
+The adventure is called "A Chronon at the Container Store", and places the player in front of the titular Store, which is full of -you guessed it- Containers!

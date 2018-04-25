@@ -1,0 +1,459 @@
+---
+type: location
+id: parkingLot
+name: parking lot
+article: the
+desc: You are in the parking lot
+longdesc: |
+  You are in the parking lot of this store. Rain hangs in the air
+  around you, frozen in time. To the north lies the entrance to
+  the store, silently beckoning you to enter, and at your side
+  is a backpack.
+exits:
+  north: entrance
+items:
+  - name: map
+    desc: |
+      A dusty old eraser.
+  - name: note
+    desc: |
+      A neatly handwritten note written in pen.
+      "Hello! You've been chosen to test a new bit of 
+      technological wizardry that I've concoted! I've
+      slowed the flow of linear time to be functionally
+      still, so you have plenty of time to mess around
+      with the various things in the store."
+  - name: backpack
+    desc: |
+      It is a well-constructed backpack with myriad zippers
+      and pouches. You could probably fit anything you could hold
+      in your hands in here.
+    container: true
+  - name: rain
+    desc: |
+      Your hand brushes through the rain, pushing the
+      suspended droplettes into new floating positions.
+    portable: false
+contains:
+  backpack: [note, map]
+---
+type: location
+id: entrance
+name: front of the store
+article: the
+desc: You are standing in the front of the store.
+longdesc: |
+  You are standing in the front of the store. The door
+  back out of the store is to the south, and you can see
+  entrances to aisle 1 to the west, and aisle 2 to the 
+  north. There's an ATM nearby.
+items:
+  - name: bills
+    desc: |
+      It's some money. Somewhere around $30?
+  - name: atm
+    aliases: [ATM]
+    desc: |
+      It stands about 4 feet tall, a single-screened monument
+      to the computerized systems driving our capitalistic
+      society. You ponder for a moment your place in the system,
+      if anything you do is truly relevant in this data-centric
+      civilization we have made for ourself. Also the little
+      tray that holds the money is open, so that's neat!
+    portable: false
+    container: true
+exits:
+  north: aisle2E
+  west: aisle1M
+  south: parkingLot
+contains:
+  atm: [bills]
+---
+type: location
+id: aisle1W
+name: west-most part of the aisle 1
+article: the
+desc: You are in the farthest west part of aisle 1.
+longdesc: |
+  You are standing in the west part of aisle 1. There
+  is a magazine rack that stretches north to the end 
+  of the store. To the east is the rest of aisle 1.
+items:
+  - name: rack
+    aliases: [magazines]
+    desc: |
+      This section of the magazine rack is labled "SCIENCE".
+    portable: false
+    container: true
+  - name: Make
+    desc: |
+      A popular magazine for people who like learning how to 
+      make computer-based projects for fun and education.
+  - name: Smithsonian
+    desc: |
+      A magazine by some nerds who run a museum or something. It
+      probably has some complicated science stuff in it.
+exits:
+  north: aisle2W
+  east: aisle1M
+contains:
+  rack: [Make, Smithsonian]
+---
+type: location
+id: aisle1M
+name: middle of aisle 1
+article: the
+desc: You are in the middle of aisle 1.
+longdesc: |
+  You are standing in middle of aisle 1, where a rack of clothing
+  presents a few different options for what to dress with.
+  The entrance of the store is east, the door open. To the west, 
+  aisle 1 extends to the farthest part of the store.
+items:
+  - name: rack
+    aliases: [clothing]
+    desc: |
+      The clothing rack has a variety of plain hangers, hooks
+      and drawers, letting it hold lots of different things.
+    portable: false
+    container: true
+  - name: hat
+    aliases: [cap]
+    desc: |
+      A red baseball cap that hat "HAT" written in bright
+      orange letters across the brim.
+  - name: shirt
+    desc: |
+      A white t-shirt that says "SHIRT" in black letters.
+  - name: pants
+    desc: |
+      A pair of khaki cargo pants. Pockets have haphazardly
+      been sewn on it, so you can probably hold stuff in them.
+    container: true
+  - name: change
+    aliases: [coins]
+    desc: |
+      A bit of loose change. You used to be able to buy
+      a movie ticket with this kind of money.
+exits:
+  east: entrance
+  west: aisle1W
+contains:
+  rack: [hat, shirt, pants]
+---
+type: location
+id: behindCounter
+name: area behind the counter
+article: the
+desc: You are behind the counter.
+longdesc: |
+  You are standing behind the counter. You're not sure if you can be
+  here legally, but rules and societal norms have no power over you
+  in this world so it probably doesn't matter. There's a cash register
+  on the table, and the drawer below it is unlocked. You see The Slorpus
+  Zone back north.
+items:
+  - name: register
+    desc: |
+      A box lots of buttons and sliding bits used in transactions at the store.
+    portable: false
+    container: true
+  - name: money
+    desc: |
+      Around $5 worth of change and bills. You're rich!
+  - name: binder
+    desc: |
+      A black binder filled with pages of employee hours,
+      monthly earnings, and other fascinating economic tidbits.
+  - name: drawer
+    desc: |
+      Normally this would be inaccessable to anyone without a key, but either
+      a manager was careless and left it unlocked, or whoever programmed this
+      didn't have time to implement unlocking containers. Either way, it's open.
+exits:
+  north: slorpusZone
+contains:
+  register: [money]
+  drawer: [binder]
+---
+type: location
+id: slorpusZone
+name: Slorpus Zone
+article: the
+desc: You in The Slorpus Zone.
+longdesc: |
+  You are standing in front of a knock-off Slurpee machine, or
+  as a sign brightly announces in front of it "THE SLORPUS ZONE".
+  The refrigerated soda shelves are to the north, and the coffee
+  station to the west. It looks like the door to the employee
+  side of the counter to the south has been left open.
+items:
+  - name: sign
+    aliases: [logo, porpoise, Vaquita, mascot]
+    desc: |
+      A dolphin-like creature holds a small cup in her fin.
+      You recognize her as Vaquita, the Slorpus Porpoise, and
+      the mascot for this iconic cold drink.
+    portable: false
+  - name: machine
+    desc: |
+      The machine used to make Slorpuses. However, in frozen
+      time, it doesn't look like it works. How convinient...
+    portable: false
+  - name: drink
+    aliases: [cup, slorpus, Slorpus]
+    desc: |
+      A cool refreshing drink. Like Vaquita always
+      says, "Slurp the Slorp!"
+exits:
+  south: behindCounter
+  west: coffeeStation
+  north: sodaZone
+---
+type: location
+id: coffeeStation
+name: coffee station
+article: the
+desc: You are next to the coffee station.
+longdesc: |
+  You are standing next to the coffee station, a small table in
+  an open part of the store. A big coffee mug sits empty on it,
+  and it looks like any items used to make actual coffee are
+  mysteriously absent. Aisle 2 opens to the west, and a sign
+  flashes intermittently to the east.
+items:
+  - name: mug
+    aliases: [cup]
+    desc: |
+      An oversized off-white coffee mug. Could probably
+      hold things.
+    container: true
+exits:
+  east: slorpusZone
+  west: aisle2E
+---
+type: location
+id: aisle2E
+name: middle of the store
+article: the
+desc: You are in the middle of the store.
+longdesc: |
+  You are standing in the middle of the store. You can see the
+  northernmost side of the store to the north The entrance is to
+  the south, and to the east is a table labeled "Coffee Station".
+  Aisle 2 is to your left.
+exits:
+  east: coffeeStation
+  north: aisle3E
+  south: entrance
+  west: aisle2M
+---
+type: location
+id: aisle2M
+name: middle of aisle 2
+article: the
+desc: You are in the middle of aisle 2.
+longdesc: |
+  You are standing in the middle of aisle 2. You see large bowl
+  of candy one side of the aisle, and a large box labeled
+  "Chips, Trail Mix, etc." To the west is the western wall of the
+  store, and to the east is the middle of the store.
+items:
+  - name: chips
+    aliases: [chips]
+    desc: |
+      It's a bag of chips. Crunchy!
+  - name: mix
+    aliases: [trail mix]
+    desc: |
+      In case you need a quick snack on the go.
+  - name: box 
+    desc: |
+      A cardboard box that says "Chips, Trail Mix, etc." on it.
+    portable: false
+    container: true
+  - name: bowl
+    desc: |
+      A pair of khaki cargo pants. Pockets have haphazardly
+      been sewn on it, so you can probably hold stuff in them.
+    portable: false
+    container: true
+  - name: Skittles
+    article: [skittles]
+    desc: |
+      A fruit-flavored multicolored candy pack. <verb> the rainbow!
+  - name: Hershey's
+    desc: |
+      A classic chocolate sold in stores all around the world. An
+      important ingredient in making s'mores.
+contains:
+  box: [chips, mix]
+  bowl: [Skittles, Hershey's]
+exits:
+  east: aisle2E
+  west: aisle2W
+---
+type: location
+id: aisle2W
+name: west-most part of aisle 2
+article: the
+desc: You are in the west-most part of aisle 2.
+longdesc: |
+  You are standing in the west-most part of aisle 2. There
+  is a magazine rack that stretches to the north and south 
+  of the store. To the east is the rest of aisle 2.
+items:
+  - name: rack
+    aliases: [magazines]
+    desc: |
+      This section of the magazine rack is labled "NEWS".
+    portable: false
+    container: true
+  - name: People
+    aliases: [people]
+    desc: |
+      A weekly magazine that compiles the lives of a variety
+      of different celebrities.
+  - name: Time
+    aliases: [time]
+    desc: |
+      A really famous magazine. If you haven't heard of
+      it, I'm not quite sure what to tell you.
+contains: 
+  rack: [Time, People]
+exits:
+  north: aisle3W
+  south: aisle1W
+  west: aisle2M
+---
+type: location
+id: aisle3W
+name: west-most part of aisle 3
+article: the
+desc: You are in the west-most part of aisle 3.
+longdesc: |
+  You are standing in the west-most part of aisle 3. There
+  is a magazine rack that stretches to the south of the
+  store. To the east is the rest of aisle 3, and to the
+  north is a restroom.
+items:
+  - name: rack
+    aliases: [magazines]
+    desc: |
+      This section of the magazine rack is labled "SPORTS".
+    portable: false
+    container: true
+  - name: ESPN
+    aliases: [espn]
+    desc: |
+      A magazine made by people who make a show about sports. Covers
+      a variety of sports.
+  - name: Bicycling
+    aliases: [bicycling]
+    desc: |
+      A magazine made by and for enthusiasts of the 2 wheeled pedal-powered
+      of transportation.
+contains: 
+  rack: [ESPN, Bicycling]
+exits:
+  north: restroom
+  south: aisle2W
+  west: aisle3M
+---
+type: location
+id: aisle3M
+name: middle part of aisle 3
+article: the
+desc: You are in the middle part of aisle 3.
+longdesc: |
+  You are standing in the middle part of aisle 3. The
+  shelf has a few different cereal boxes.
+items:
+  - name: shelf
+    aliases: [shelves]
+    desc: |
+      A few metal racks made to hold a variety of milk-augmentable
+      crunch morning treats.
+    portable: false
+    container: true
+  - name: Cheerios
+    aliases: [cheerios]
+    desc: |
+      A healthy and refreshing cereal that inspired the classic animated
+      film The Bee Movie.
+  - name: Lucky Charms
+    aliases: [charms, lucky]
+    desc: |
+      A cereal that advertises itself as "Magically Delicious!" Too bad
+      nobody programed an "eat" command to test that claim.
+contains: 
+  rack: [Cheerios, Lucky Charms]
+exits:
+  eath: aisle3E
+  west: aisle3W
+---
+type: location
+id: aisle3E
+name: back of the store
+article: the
+desc: You are in the back of the store.
+longdesc: |
+  You are standing in the back of the store. You see a set of refrigerators
+  to the east labeled "The Soda Zone", the middle of the store to the south,
+  and aisle 3 to the west.
+exits:
+  east: sodaZone
+  south: aisle2E
+  west: aisle3M
+---
+type: location
+id: sodaZone
+name: soda aisle
+article: the
+desc: You are in the soda aisle.
+longdesc: |
+  A long set of refrigerators labeled "The Soda Zone" chill whatever is stored
+  in them. To the south, a sign flashes "SLORPUS" dimly. To the west is the back
+  of the store.
+items:
+  - name: refrigerator
+    aliases: [refrigerators]
+    desc: |
+      A cold container that is designed to store food that doesn't like being kept
+      at room temperature.
+    portable: false
+    container: true
+  - name: Soda
+    aliases: [soda]
+    desc: |
+      Don't shake it too much!
+contains: 
+  rack: [Soda]
+exits:
+  south: slorpusZone
+  west: aisle3E
+---
+type: location
+id: restroom
+name: restroom
+article: the
+desc: You are in the restroom.
+longdesc: |
+  You are standing in the restroom in the back of the store. A cracked
+  mirror is in one corner, and the sink is right below it. The rest of
+  the store is back to the south.
+items:
+  - name: mirror
+    aliases: [shelves]
+    desc: |
+      It's you! You look like yourself, as always.
+    portable: false
+  - name: sink
+    aliases: [shelves]
+    desc: |
+      Well, they haven't cleaned this in a while. You could probably
+      put stuff in here if you wanted to. For some reason.
+    portable: false
+    container: true
+exits:
+  south: aisle3W
